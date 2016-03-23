@@ -1,11 +1,14 @@
 #!/bin/sh
 
-# Made by DiDA for iOSGods.com! - Version 1.2.7 - Visit https://github.com/iOSGods/Auto-Lipo-for-iOS-5-to-iOS-9-/ for an up-to-date version!
+# Made by DiDA for iOSGods.com! - Version 1.0 - Visit https://github.com/iOSGods/Auto-Lipo-Online-Version for an up-to-date version!
 
 
 #################################################################################
 
-iosgods_binary="/var/mobile/Documents/Binary/BINARYNAME"
+iosgods_binary="/tmp/BINARYNAME"
+iosgods_url="http://directdownloadlinktofile.tld/BINARYDOWNLOADLINK"   # URL Download links must be direct download
+iosgods_url2="http://directdownloadlinktofile.tld/BINARYDOWNLOADLINK2"  # Backup URL incase the first one fails or is country blocked
+
 iosgods_target_directory="/var/mobile/Containers/Bundle/Application/*/APPNAME.app/"
 iosgods_lipoarm64="/usr/bin/LipoARM64NAME"
 lipoarm64_binarytarget="BINARYNAME"
@@ -83,6 +86,20 @@ case "${1}" in
                 printf "* iOS 9.0 or higher has been detected. *\\n"
                 printf "****************************************\\n\\n"
 
+				command -v "wget" >/dev/null 2>&1 || {
+                    printf "\\n\\n** wget wasn't found, please open Cydia and install 'wget' then try again.\\n\\n"
+                        exit 1
+                }
+
+                printf "\\n** Downloading the binary patch...\\n\\n"
+                if ! wget "${iosgods_url}" -O "${iosgods_binary}"; then
+                    printf "\\n\\nDownload failed. Trying the second URL...\\n\\n"
+                    if ! wget "${iosgods_url2}" -O "${iosgods_binary}"; then
+                        printf "\\n\\nDownload failed. Please manually thin/patch your binary using the tutorials on iOSGods.com. If your device is x32-bit, thinning/patching isn't required. If your device is x64-bit thinning/patching is required for this hack to work.\\n\\n"
+                        exit 0
+                    fi
+                fi
+				
                 ig_mv_perms
 		
                 ;;
