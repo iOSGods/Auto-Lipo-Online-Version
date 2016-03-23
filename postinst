@@ -7,7 +7,7 @@
 
 iosgods_binary="/tmp/BINARYNAME"
 iosgods_url="http://directdownloadlinktofile.tld/BINARYDOWNLOADLINK"   # URL Download links must be direct download
-iosgods_url2="http://directdownloadlinktofile.tld/BINARYDOWNLOADLINK2"  # Backup URL incase the first one fails or is country blocked
+iosgods_url2="http://directdownloadlinktofile.tld/BINARYDOWNLOADLINK2"  # Backup URL incase the first one fails
 
 iosgods_target_directory="/var/mobile/Containers/Bundle/Application/*/APPNAME.app/"
 iosgods_lipoarm64="/usr/bin/LipoARM64NAME"
