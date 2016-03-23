@@ -77,7 +77,8 @@ case "${1}" in
 		"${iosgods_lipoarm64}" "${lipoarm64_binarytarget}"
 		
 		# Since iOS 8 or lower has been detected, we no longer need the thinned binary we bundled with the .deb so we remove it to free up space
-		rm -f "${iosgods_binary}"
+		# No necessary in this version of Auto Lipo
+		#rm -f "${iosgods_binary}"
 		
                 ;;
 
