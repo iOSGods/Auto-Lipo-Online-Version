@@ -86,7 +86,7 @@ case "${1}" in
                 printf "* iOS 9.0 or higher has been detected. *\\n"
                 printf "****************************************\\n\\n"
 
-				command -v "wget" >/dev/null 2>&1 || {
+		command -v "wget" >/dev/null 2>&1 || {
                     printf "\\n\\n** wget wasn't found, please open Cydia and install 'wget' then try again.\\n\\n"
                         exit 1
                 }
